@@ -106,12 +106,12 @@ public:
 		return temp; 
 	}
 
-	void insert(const ValType& DataTmp, int position = 1) {
+	void insert(const ValType& DataTemp, int position = 1) {
 		if (position == 1)
 		{
-			Node* tmp = new Node(DataTmp);
-			tmp->next = head->next;
-			head->next = tmp;
+			Node* temp = new Node(DataTemp);
+			temp->next = head->next;
+			head->next = temp;
 			count++;
 		}
 		else if (position > 1 && position <= count + 1)
@@ -123,18 +123,18 @@ public:
 				++it;
 				i++;
 			}
-			Node* tmp = new Node(DataTmp);
-			tmp->next = it->next;
-			it->next = tmp;
+			Node* temp = new Node(DataTemp);
+			temp->next = it->next;
+			it->next = temp;
 			count++;
 		}
 		else throw "Incorrect position";
 	};
 
-	void insert(const ValType& DataTmp, Node* position) {
-		Node* tmp = new Node(DataTmp);
-		tmp->next = position->next;
-		position->next = tmp;
+	void insert(const ValType& DataTemp, Node* position) {
+		Node* temp = new Node(DataTemp);
+		temp->next = position->next;
+		position->next = temp;
 		count++;
 	};
 
@@ -166,9 +166,9 @@ public:
 	void erase(Node* position) {
 		if (position->next != head)
 		{
-			Node* tmp = position->next;
-			position->next = tmp->next;
-			delete tmp;
+			Node* temp = position->next;
+			position->next = temp->next;
+			delete temp;
 			count--;
 		}
 		else throw "Pointer to last Node";
@@ -212,4 +212,9 @@ public:
 
 	int GetCount() { return count; };
 
+	List copy() {
+		while (!empty()) {
+		
+		}
+	};
 };
